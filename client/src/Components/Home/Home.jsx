@@ -1,12 +1,28 @@
-import React from 'react';
-import styles from "./Home.module.css";
+import React from "react";
+import Cards from "../Cards/Cards";
+import { Container } from "../../StyledComponents/Container";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-     return (
-          <div>
-               soy Home
-          </div>
-     )
-}
+  const countries = useSelector((state) => state.countriesReducer.countries);
+  const modifiedCountries = useSelector(
+    (state) => state.countriesReducer.modifiedCountries
+  );
 
-export default Home
+  return (
+    <Container
+      height="fit-content"
+      width="100%"
+      padding="50px"
+      bground="transparent"
+    >
+      <Cards
+        modifiedCountries={
+          modifiedCountries.length ? modifiedCountries : countries
+        }
+      />
+    </Container>
+  );
+};
+
+export default Home;

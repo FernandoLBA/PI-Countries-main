@@ -8,7 +8,7 @@ const initialState = {
 const countriesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_COUNTRIES:
-      return { ...state, countries: payload, modifiedCountries: payload };
+      return { ...state, countries: payload };
 
     default:
       return state;
