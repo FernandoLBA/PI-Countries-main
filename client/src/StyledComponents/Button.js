@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Button = styled.button`
   display: ${({ display }) => display || "inline"};
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 25px;
   font-weight: bold;
   text-transform: uppercase;
   margin: ${({ margin }) => margin || "0"};

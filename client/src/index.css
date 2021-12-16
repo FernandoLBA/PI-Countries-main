@@ -11,3 +11,10 @@ body {
   color: #F0FFFF;
   font-family: 'Verdana';
 }
+
+select, input{
+  padding: 10px 15px;
+  border-radius: 25px;
+  color: #d2691e;
+  outline: none;
+}

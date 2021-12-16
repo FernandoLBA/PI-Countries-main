@@ -3,7 +3,6 @@ import { Wrapper } from "../../StyledComponents/Wrapper";
 import Card from "../Card/Card";
 
 const Cards = ({ modifiedCountries }) => {
-  console.log(modifiedCountries[0])
   return (
     <Wrapper
       width="100%"
@@ -12,7 +11,7 @@ const Cards = ({ modifiedCountries }) => {
       jContent="center"
       aItems="center"
       padding="40px"
-      bground="#00000030"
+      bground="#00000080"
     >
       {modifiedCountries.map((c) => (
         <Card key={c.id} country={c} />

@@ -9,4 +9,5 @@ export const Title = styled.h2`
   width: ${({width}) => width || "100%"};
   background-color: ${({ bground }) => bground || "#000"};
   text-align: ${({ tAlign }) => tAlign || "center"};
+  border-radius: ${({ bRadius }) => bRadius || "0"};
 `;

@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: ${({ flex }) => flex || "block"};
+  flex-wrap: wrap;
   flex-direction: ${({ fDirection }) => fDirection || "row"};
   justify-content: ${({ jContent }) => jContent || "center"};
   align-items: ${({ aItems }) => aItems || "center"};
-  flex-wrap: wrap;
   width: ${({ width }) => width || "100vw"};
   height: ${({ height }) => height || "10vh"};
   padding: ${({ padding }) => padding || "0"};

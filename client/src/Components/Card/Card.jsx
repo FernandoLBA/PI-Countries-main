@@ -1,58 +1,61 @@
 import React from "react";
-import { Button } from "../../StyledComponents/Button";
 import { Links } from "../../StyledComponents/Links";
 import { Wrapper } from "../../StyledComponents/Wrapper";
 import { Container } from "../../StyledComponents/Container";
 import { Title } from "../../StyledComponents/Title";
+import { Span } from "../../StyledComponents/Span";
 
 const Card = ({ country }) => {
   return (
-    <Links to={`/home/${country.id}`}>
+    <Links to={`/home/Country/${country.id}`}>
+      {/* CARD */}
       <Wrapper
         width="300px"
-        height="400px"
+        height="300px"
         bground={`url(${country.flags}) no-repeat`}
-        bDrop="blur(8px)"
-        bSize="300px 50%"
-        flex="flex"
-        fDirection="column"
+        bSize="300px 68%"
         margin="10px"
-        border="2px solid chocolate"
       >
+        {/* Contenedor de textos */}
         <Container
           width="100%"
-          height="50%"
-          margin="67% 0 0 0"
-          bRadius="0 0 25px 25px"
-          bground="transparent"
+          height="33%"
+          margin="67.5% 0 0 0"
+          bRadius="0"
+          bground="azure"
         >
+          {/* Wrapper de los textos */}
           <Wrapper
             width="100%"
             bRadius="0"
+            padding="10px 15px"
             height="100%"
             flex="flex"
             fDirection="column"
-            jContent="space-between"
-            aItems="center"
-            bground="transparent"
+            jContent="space-around"
           >
             <Title
-              bground="transparent"
-              fSize="1em"
-              tAlign="center"
-              padding="20px"
+              fSize=".8em"
+              tAlign="left"
               width="100%"
-              color="chocolate"
               fWeight="bold"
+              bground="transparent"
+              color="#D2691E"
             >
               {country.name}
             </Title>
 
-            <Wrapper height="30%" width="100%" bRadius="0" padding="20px">
-              {country.continents.map((c) => (
-                <Title bground="transparent" fSize=".9em" key={Math.random(0, 10)}>{c}</Title>
-              ))}
-            </Wrapper>
+            {country.continents.map((c) => (
+              <Title
+                color="#D2691E"
+                bground="transparent"
+                tAlign="left"
+                fSize=".8em"
+                key={Math.random(0, 10)}
+              >
+                <Span fWeight="bold" color="#D2691E">Continent: </Span>{c}
+              </Title>
+            ))}
           </Wrapper>
         </Container>
       </Wrapper>

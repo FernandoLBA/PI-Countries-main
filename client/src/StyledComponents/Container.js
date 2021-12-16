@@ -4,8 +4,8 @@ export const Container = styled.div`
   margin: ${({ margin }) => margin || "0"};
   padding: ${({ padding }) => padding || "0"};
   border-radius: ${({ bRadius }) => bRadius || "25px"};
-  height: ${({ height }) => height || "0"};
-  width: ${({ width }) => width || "100vw"};
+  height: ${({ height }) => height || "fit-content"};
+  width: ${({ width }) => width || "fit-content"};
   background: ${({ bground }) => bground || "#000"};
   background-size: cover;
   position: ${({ position }) => position};

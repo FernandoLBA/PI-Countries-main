@@ -9,6 +9,7 @@ export const Links = styled(Link)`
   &:hover{
     color: ${({color}) => color ? `${color}90` : "#F0FFFF90"};
     font-size: .97em;
+    transform: translateY(-3%);
     transition: ease all 1s;
   }
   

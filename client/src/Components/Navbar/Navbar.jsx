@@ -7,7 +7,13 @@ import { Wrapper } from "../../StyledComponents/Wrapper";
 
 const Navbar = () => {
   return (
-    <Container height="fit-content" bRadius="0" bground="#D2691E" width="100%">
+    <Container
+      height="fit-content"
+      padding="20px"
+      bRadius="0"
+      bground="#D2691E"
+      width="100%"
+    >
       <Wrapper
         flex="flex"
         jContent="space-between"
@@ -24,9 +30,8 @@ const Navbar = () => {
             flex="flex"
             aItems="center"
             jContent="space-between"
-            height="5vh"
             bRadius="0"
-            width="30vw"
+            width="230px"
             bground="transparent"
           >
             <Links to="/home">

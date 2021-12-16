@@ -1,17 +1,23 @@
 import "./App.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getCountries } from "./Redux/Actions/countriesActions";
+import { getContinents, getCountries } from "./Redux/Actions/countriesActions";
 import { Route, Routes } from "react-router";
 import Landing from "./Components/Landing/Landing";
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Components/Home/Home";
+import Detail from "./Components/Detail/Detail";
 
 function App() {
   const dispatch = useDispatch();
 
+  const getter = async () => {
+    await dispatch(getCountries());
+    dispatch(getContinents());
+  };
+
   useEffect(() => {
-    dispatch(getCountries());
+    getter();
   });
 
   return (
@@ -24,6 +30,24 @@ function App() {
             <>
               <Navbar />
               <Home />
+            </>
+          }
+        />
+        <Route
+          path="/home/country/"
+          element={
+            <>
+              <Navbar />
+              <Detail />
+            </>
+          }
+        />
+        <Route
+          path="/home/country/:id"
+          element={
+            <>
+              <Navbar />
+              <Detail />
             </>
           }
         />
