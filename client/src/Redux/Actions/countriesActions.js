@@ -1,6 +1,7 @@
 import {
   GET_COUNTRIES,
   GET_COUNTRY_BY_NAME,
+  CLEAR_COUNTRY_DETAIL,
   GET_CONTINENTS,
   FILTER_BY_CONTINENTS,
   SORT_COUNTRIES,
@@ -38,7 +39,16 @@ export const getCountryByName = (name) => {
           type: GET_COUNTRY_BY_NAME,
           payload: response.data,
         });
-      });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const clearCountryDetail = () => {
+  return function (dispatch) {
+    dispatch({
+      type: CLEAR_COUNTRY_DETAIL,
+    });
   };
 };
 

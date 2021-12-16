@@ -2,6 +2,7 @@ import {
   GET_COUNTRIES,
   GET_CONTINENTS,
   GET_COUNTRY_BY_NAME,
+  CLEAR_COUNTRY_DETAIL,
   FILTER_BY_CONTINENTS,
   SORT_COUNTRIES,
 } from "../Constants/actionTypes";
@@ -29,6 +30,9 @@ const countriesReducer = (state = initialState, { type, payload }) => {
 
     case GET_COUNTRY_BY_NAME:
       return { ...state, countryDetail: payload };
+
+    case CLEAR_COUNTRY_DETAIL:
+      return { ...state, countryDetail: []};
 
     case FILTER_BY_CONTINENTS:
       let filtered = [...state.countries].filter(

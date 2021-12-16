@@ -10,12 +10,12 @@ router.get("/countries", async (req, res) => {
   const { name } = req.query;
   if (name) {
     const countries = await getCountries(name);
-    return countries
+    return countries.length
       ? res.send(countries)
-      : res.send("No results for your search.");
+      : res.send({error: "Country not found"});
   }
   const countries = await getCountries();
-  return countries ? res.send(countries) : res.sendStatus(404);
+  return countries ? res.send(countries) : res.status(404).send({error: "No results"});
 });
 
 router.get("/countries/:id", async (req, res) => {

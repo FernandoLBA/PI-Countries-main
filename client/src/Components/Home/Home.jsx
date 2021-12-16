@@ -4,7 +4,8 @@ import Modifiers from "../Modifiers/Modifiers";
 import { Container } from "../../StyledComponents/Container";
 import { useSelector } from "react-redux";
 import { Wrapper } from "../../StyledComponents/Wrapper";
-import Loading from "../Loading/Loading"
+import { Title } from "../../StyledComponents/Title";
+import Loading from "../Loading/Loading";
 
 const Home = ({ continents }) => {
   const countries = useSelector((state) => state.countriesReducer.countries);
@@ -21,16 +22,20 @@ const Home = ({ continents }) => {
         padding="50px"
         bground="transparent"
       >
-        {
-          countries.length ? 
+        {countries.length ? (
           <Cards
             modifiedCountries={
               modifiedCountries.length ? modifiedCountries : countries
             }
           />
-          :
-          <Loading />
-        }
+        ) : (
+          <>
+            <Loading />
+            <Title bground="transparent" padding="20px">
+              Loading...
+            </Title>
+          </>
+        )}
       </Container>
     </Wrapper>
   );
