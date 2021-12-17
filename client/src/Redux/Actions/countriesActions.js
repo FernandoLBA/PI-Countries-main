@@ -7,6 +7,7 @@ import {
   FILTER_BY_CONTINENTS,
   FILTER_BY_ACTIVITIES,
   SORT_COUNTRIES,
+  LOAD_COUNTRIES,
 } from "../Constants/actionTypes";
 import axios from "axios";
 
@@ -48,12 +49,14 @@ export const getCountryByName = (name) => {
 
 export const getCountryById = (id) => {
   return async function (dispatch) {
-    await axios.get(`http://localhost:3001/countries/${id}`).then((response) => {
-      return dispatch({
-        type: GET_COUNTRY_BY_ID,
-        payload: response.data,
+    await axios
+      .get(`http://localhost:3001/countries/${id}`)
+      .then((response) => {
+        return dispatch({
+          type: GET_COUNTRY_BY_ID,
+          payload: response.data,
+        });
       });
-    });
   };
 };
 
@@ -88,6 +91,14 @@ export const sortCountries = (sort) => {
     dispatch({
       type: SORT_COUNTRIES,
       payload: sort,
+    });
+  };
+};
+
+export const loadCountries = () => {
+  return function (dispatch) {
+    dispatch({
+      type: LOAD_COUNTRIES,
     });
   };
 };

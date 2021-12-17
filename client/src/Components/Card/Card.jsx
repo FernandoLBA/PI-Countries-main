@@ -12,7 +12,7 @@ const Card = ({ country }) => {
       {/* CARD */}
       <Wrapper
         width="300px"
-        height="300px"
+        height="280px"
         bground={`url(${country.flags}) no-repeat`}
         bSize="300px 68%"
         margin="10px"
@@ -21,7 +21,7 @@ const Card = ({ country }) => {
         <Container
           width="100%"
           height="33%"
-          margin="67.5% 0 0 0"
+          margin="66% 0 0 0"
           bRadius="0"
           bground="azure"
         >
@@ -29,8 +29,8 @@ const Card = ({ country }) => {
           <Wrapper
             width="100%"
             bRadius="0"
-            padding="10px 15px"
-            height="100%"
+            padding="20px"
+            height="90%"
             flex="flex"
             fDirection="column"
             jContent="space-around"

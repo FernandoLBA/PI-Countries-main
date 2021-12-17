@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getContinents, getCountries } from "./Redux/Actions/countriesActions";
+import { getContinents, getCountries, loadCountries } from "./Redux/Actions/countriesActions";
 import { getActivities } from "./Redux/Actions/activitiesActions";
 import { Route, Routes } from "react-router";
 import Landing from "./Components/Landing/Landing";
@@ -16,6 +16,7 @@ function App() {
     await dispatch(getCountries());
     dispatch(getContinents());
     dispatch(getActivities());
+    dispatch(loadCountries());
   };
 
   useEffect(() => {

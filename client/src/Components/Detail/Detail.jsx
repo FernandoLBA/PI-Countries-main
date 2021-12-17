@@ -43,8 +43,8 @@ const Detail = () => {
             src={country.flags}
             alt={country.id}
             style={{ borderRadius: "25px" }}
-            width="300px"
-            height="200px"
+            width="350px"
+            height="250px"
           />
         </Container>
         <Wrapper
@@ -53,7 +53,7 @@ const Detail = () => {
           flex="flex"
           aItems="flex-start"
         >
-          <Container margin="0 20px" padding="50px" bground="transparent">
+          <Container margin="50px" bground="transparent">
             <Title
               tAlign="left"
               color="Chocolate"
@@ -82,7 +82,7 @@ const Detail = () => {
             </Title>
             <p>{country.population} Habitants.</p>
           </Container>
-          <Container margin="0 20px" padding="50px" bground="transparent">
+          <Container margin="50px 0" bground="transparent">
             <Title
               tAlign="left"
               color="Chocolate"
@@ -91,7 +91,9 @@ const Detail = () => {
             >
               Area
             </Title>
-            <p>{country.area} Km<sup>2</sup>.</p>
+            <p>
+              {country.area} Km<sup>2</sup>.
+            </p>
             <Title
               tAlign="left"
               color="Chocolate"
@@ -101,8 +103,7 @@ const Detail = () => {
               Continent
             </Title>
             <p>{country.continents}.</p>
-            {country.activities?.length ?
-            (
+            {country.activities?.length ? (
               <>
                 <Title
                   tAlign="left"
@@ -113,10 +114,14 @@ const Detail = () => {
                   Activities
                 </Title>
                 {country.activities?.map((a) => (
-                  <p style={{paddingBottom: "10px"}} key={Math.random(0, 10)}>{a.name}.</p>
+                  <p style={{ paddingBottom: "10px" }} key={Math.random(0, 10)}>
+                    {a.name}.
+                  </p>
                 ))}
               </>
-            ): ""}
+            ) : (
+              ""
+            )}
           </Container>
         </Wrapper>
       </Wrapper>

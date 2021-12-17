@@ -13,7 +13,7 @@ Debe filtar por continents [done] y actividades [done]
 Debe ordenar por orden alfabético [done] y por cantidad de población [done]
 Debe tener un paginado [] 10 paises por página
 
-Deben poder mezclarse los filtros y los ordenamientos []
+Deben poder mezclarse los filtros y los ordenamientos [done]
 */
 
 const Modifiers = () => {

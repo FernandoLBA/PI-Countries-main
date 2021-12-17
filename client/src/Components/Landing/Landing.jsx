@@ -25,8 +25,8 @@ const Landing = () => {
       </Container>
       <Hero>
         <Title bground="#00000090" padding="20px">
-          Find<Span fWeight="bold"> fun activities around the world and </Span>
-          have a good time
+          Find<Span fWeight="bold"> funny activities around the world </Span>
+          and have a good time
         </Title>
         <Button
           bground="#D2691E"
