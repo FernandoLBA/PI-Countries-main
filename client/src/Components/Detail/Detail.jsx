@@ -38,13 +38,13 @@ const Detail = () => {
         padding="50px"
       >
         <Title bground="transparent">Country Details:</Title>
-        <Container margin="0 20px" bground="transparent">
+        <Container margin="50px" bground="transparent">
           <img
             src={country.flags}
             alt={country.id}
             style={{ borderRadius: "25px" }}
-            width="350px"
-            height="250px"
+            width="450px"
+            height="300px"
           />
         </Container>
         <Wrapper
@@ -53,14 +53,23 @@ const Detail = () => {
           flex="flex"
           aItems="flex-start"
         >
-          <Container margin="50px" bground="transparent">
+          <Container padding="25px 50px 0 0" bground="transparent">
             <Title
               tAlign="left"
               color="Chocolate"
               padding="10px 0"
               bground="transparent"
             >
-              Country
+              Country Code
+            </Title>
+            <p>{country.id}.</p>
+            <Title
+              tAlign="left"
+              color="Chocolate"
+              padding="10px 0"
+              bground="transparent"
+            >
+              Country Name
             </Title>
             <p>{country.name}.</p>
             <Title
@@ -78,11 +87,21 @@ const Detail = () => {
               padding="10px 0"
               bground="transparent"
             >
+              Subregion
+            </Title>
+            <p>{country.subregion}.</p>
+          </Container>
+
+          <Container padding="25px 0 0 0" bground="transparent">
+          <Title
+              tAlign="left"
+              color="Chocolate"
+              padding="10px 0"
+              bground="transparent"
+            >
               Population
             </Title>
             <p>{country.population} Habitants.</p>
-          </Container>
-          <Container margin="50px 0" bground="transparent">
             <Title
               tAlign="left"
               color="Chocolate"

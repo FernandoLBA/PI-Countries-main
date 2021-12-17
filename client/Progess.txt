@@ -1,0 +1,41 @@
+</> LANDING PAGE [done]
+[done] Imagen representativa.
+[done] Botón de ingreso al home.
+
+</> HOME PAGE []
+[done] Input de búsqueda.
+[done] Área para renderizar países.
+** PAISES
+--[done] Imagen de la bandera.
+--[done] Nombre.
+--[done] Continente.
+** FILTROS
+--[done] Filtrar por continente.
+--[done] Filtrar por actividad.
+** ORDENAMIENTOS
+--[done] Ordenar alfabéticamente.
+--[done] Ordenar por población.
+** PAGINADO
+--[] Primeros 10 países por página.
+
+
+</> DETAIL PAGE [done]
+[done] Código de país.
+[done] Imagen de la bandera.
+[done] Nombre.
+[done] Continente.
+[done] Subregión.
+[done] Área.
+[done] Población.
+[done] Actividades.
+
+</> CREATE PAGE []
+** FORMULARIO CONTROLADO
+--[] Campo nombre de actividad. (Soólo letras)
+--[] Campo Dificultad del 1 al 5 (range o select). (Soólo números)
+--[] Campo temporada. (select)
+--[] Campo duración. (Solo números)
+** AGREGAR UNO O VARIOS PAÍSES EN SIMULTÁNEO
+--[] Campo select con paises cargados.
+--[] Tags con los países añadidos (posibilidad de borrar).
+[] Botón de agregar.

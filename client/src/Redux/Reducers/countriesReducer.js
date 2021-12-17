@@ -47,14 +47,24 @@ const countriesReducer = (state = initialState, { type, payload }) => {
       return { ...state, modifiedCountries: countriesByContinent };
 
     case FILTER_BY_ACTIVITIES:
-      if (payload === "activities")
-        return { ...state, modifiedCountries: [...state.countries] };
-      else {
-        let countriesByActivity = [...state.countries].filter((c) =>
-          c.activities.some((a) => a.name === payload)
-        );
-        return { ...state, modifiedCountries: countriesByActivity };
+      switch (payload) {
+        case "activities":
+          return { ...state, modifiedCountries: [...state.countries] };
+      
+        default:
+          let countriesByActivity = [...state.countries].filter((c) =>
+            c.activities.some((a) => a.name === payload)
+          );
+          return { ...state, modifiedCountries: countriesByActivity };
       }
+      // if (payload === "activities")
+      // return { ...state, modifiedCountries: [...state.countries] };
+      // else {
+      //   let countriesByActivity = [...state.countries].filter((c) =>
+      //     c.activities.some((a) => a.name === payload)
+      //   );
+      //   return { ...state, modifiedCountries: countriesByActivity };
+      // }
 
     case SORT_COUNTRIES:
       let sorted = [];
