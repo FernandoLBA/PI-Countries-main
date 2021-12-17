@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { searchValidator } from "../../Helpers/searchValidator";
 import { getCountryByName } from "../../Redux/Actions/countriesActions";
 import { Button } from "../../StyledComponents/Button";
@@ -8,7 +8,6 @@ import { Wrapper } from "../../StyledComponents/Wrapper";
 
 const Search = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
 
@@ -19,7 +18,6 @@ const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchValidator(input.trim(), setError)) {
-      navigate(`/home/country?name=${input}`);
       setInput("");
       dispatch(getCountryByName(input));
     }

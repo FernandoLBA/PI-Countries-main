@@ -1,5 +1,14 @@
 const { Country, Activity } = require("../db");
 
+const getActivities = async () => {
+  try {
+    const activities = await Activity.findAll();
+    return activities;
+  } catch (error) {
+    return error;
+  }
+};
+
 const postActivity = (idCountry, activities) => {
   try {
     activities.map(async (a) => {
@@ -21,4 +30,4 @@ const postActivity = (idCountry, activities) => {
   }
 };
 
-module.exports = postActivity;
+module.exports = {postActivity, getActivities};

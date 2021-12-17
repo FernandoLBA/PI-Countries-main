@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getContinents, getCountries } from "./Redux/Actions/countriesActions";
+import { getActivities } from "./Redux/Actions/activitiesActions";
 import { Route, Routes } from "react-router";
 import Landing from "./Components/Landing/Landing";
 import Navbar from "./Components/Navbar/Navbar";
@@ -14,6 +15,7 @@ function App() {
   const getter = async () => {
     await dispatch(getCountries());
     dispatch(getContinents());
+    dispatch(getActivities());
   };
 
   useEffect(() => {

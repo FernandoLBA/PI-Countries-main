@@ -6,6 +6,7 @@ import { Title } from "../../StyledComponents/Title";
 import { Span } from "../../StyledComponents/Span";
 
 const Card = ({ country }) => {
+
   return (
     <Links to={`/home/Country/${country.id}`}>
       {/* CARD */}
@@ -53,7 +54,10 @@ const Card = ({ country }) => {
                 fSize=".8em"
                 key={Math.random(0, 10)}
               >
-                <Span fWeight="bold" color="#D2691E">Continent: </Span>{c}
+                <Span fWeight="bold" color="#D2691E">
+                  Continent:{" "}
+                </Span>
+                {c}
               </Title>
             ))}
           </Wrapper>

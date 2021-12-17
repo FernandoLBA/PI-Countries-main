@@ -1,9 +1,11 @@
 import {
   GET_COUNTRIES,
   GET_COUNTRY_BY_NAME,
-  CLEAR_COUNTRY_DETAIL,
   GET_CONTINENTS,
+  CLEAR_COUNTRY_DETAIL,
+  GET_COUNTRY_BY_ID,
   FILTER_BY_CONTINENTS,
+  FILTER_BY_ACTIVITIES,
   SORT_COUNTRIES,
 } from "../Constants/actionTypes";
 import axios from "axios";
@@ -44,10 +46,30 @@ export const getCountryByName = (name) => {
   };
 };
 
+export const getCountryById = (id) => {
+  return async function (dispatch) {
+    await axios.get(`http://localhost:3001/countries/${id}`).then((response) => {
+      return dispatch({
+        type: GET_COUNTRY_BY_ID,
+        payload: response.data,
+      });
+    });
+  };
+};
+
 export const clearCountryDetail = () => {
   return function (dispatch) {
     dispatch({
       type: CLEAR_COUNTRY_DETAIL,
+    });
+  };
+};
+
+export const filterByActivities = (filter) => {
+  return function (dispatch) {
+    dispatch({
+      type: FILTER_BY_ACTIVITIES,
+      payload: filter,
     });
   };
 };

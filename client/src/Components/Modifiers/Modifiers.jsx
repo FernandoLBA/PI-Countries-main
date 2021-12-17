@@ -3,13 +3,13 @@ import Search from "../Search/Search";
 import { Wrapper } from "../../StyledComponents/Wrapper";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  filterByActivities,
   filterByContinents,
   sortCountries,
 } from "../../Redux/Actions/countriesActions";
-
 /* 
 *********FILTROS Y ORDENAMIENTOS*************
-Debe filtar por continents [done] y actividades []
+Debe filtar por continents [done] y actividades [done]
 Debe ordenar por orden alfabético [done] y por cantidad de población [done]
 Debe tener un paginado [] 10 paises por página
 
@@ -18,18 +18,17 @@ Deben poder mezclarse los filtros y los ordenamientos []
 
 const Modifiers = () => {
   const continents = useSelector((state) => state.countriesReducer.continents);
+  const activities = useSelector((state) => state.activitiesReducer.activities);
   const dispatch = useDispatch();
 
   const handleFilter = (e) => {
-    console.log(e.target.value);
     e.target.name === "continents"
       ? dispatch(filterByContinents(e.target.value))
-      : console.log("activities");
+      : dispatch(filterByActivities(e.target.value));
   };
 
   const handleSort = (e) => {
     dispatch(sortCountries(e.target.value));
-    
   };
 
   return (
@@ -88,7 +87,9 @@ const Modifiers = () => {
         {/* Filter Activities*/}
         <select name="activities" id="activities" onChange={handleFilter}>
           <option value="activities">Activities</option>
-          <option value="bla">Bla</option>
+          {
+            activities.map(a => (<option key={a.id} value={a.name}>{a.name}</option>))
+          }
         </select>
       </Wrapper>
     </Wrapper>

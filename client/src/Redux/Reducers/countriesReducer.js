@@ -2,8 +2,10 @@ import {
   GET_COUNTRIES,
   GET_CONTINENTS,
   GET_COUNTRY_BY_NAME,
+  GET_COUNTRY_BY_ID,
   CLEAR_COUNTRY_DETAIL,
   FILTER_BY_CONTINENTS,
+  FILTER_BY_ACTIVITIES,
   SORT_COUNTRIES,
 } from "../Constants/actionTypes";
 
@@ -29,20 +31,27 @@ const countriesReducer = (state = initialState, { type, payload }) => {
       return { ...state, continents: allContinents };
 
     case GET_COUNTRY_BY_NAME:
-      return { ...state, countryDetail: payload };
+      return { ...state, modifiedCountries: payload };
+
+    case GET_COUNTRY_BY_ID:
+      return { ...state, countryDetail: payload}
 
     case CLEAR_COUNTRY_DETAIL:
-      return { ...state, countryDetail: []};
+      return { ...state, countryDetail: [] };
 
     case FILTER_BY_CONTINENTS:
-      let filtered = [...state.countries].filter(
+      let countriesByContinent = [...state.countries].filter(
         (c) => c.continents[0] === payload
       );
-      return { ...state, modifiedCountries: filtered };
+      return { ...state, modifiedCountries: countriesByContinent };
+
+    case FILTER_BY_ACTIVITIES:
+      console.log(payload)
+    let countriesByActivity = [...state.countries].filter(c => c.activities.some(a => a.name === payload))  
+    return {...state, modifiedCountries: countriesByActivity};
 
     case SORT_COUNTRIES:
       let sorted = [];
-      console.log("ordenando");
       switch (payload) {
         // Alfabético
         case "ascendant":

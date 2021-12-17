@@ -1,123 +1,125 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import {
+  clearCountryDetail,
+  getCountryById,
+} from "../../Redux/Actions/countriesActions";
 import { Container } from "../../StyledComponents/Container";
-import { Title } from "../../StyledComponents/Title";
 import { Wrapper } from "../../StyledComponents/Wrapper";
-import { Ul, Li } from "../../StyledComponents/ListLi";
-import Loading from "../Loading/Loading";
-import { useNavigate } from "react-router-dom";
-import { clearCountryDetail } from "../../Redux/Actions/countriesActions";
+import { Title } from "../../StyledComponents/Title";
 
 const Detail = () => {
-  const detail = useSelector((state) => state.countriesReducer.countryDetail);
+  const country = useSelector((state) => state.countriesReducer.countryDetail);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const params = useParams();
 
-  // componentWillUnmount
   useEffect(() => {
-    if (detail.error) {
-      alert(`${detail.error}, redirecting you.`);
-      navigate("/home");
-    }
-
+    dispatch(getCountryById(params.id));
     return () => {
       dispatch(clearCountryDetail());
     };
-  }, [dispatch, detail.error, navigate]);
+  }, [dispatch, params.id]);
 
   return (
-    <Wrapper flex="flex" width="100%" height="85.6vh" padding="50px">
-      {detail.length ? (
+    <Wrapper
+      flex="flex"
+      aItems="center"
+      width="100vw"
+      height="85vh"
+      bground="transparent"
+      padding="0 50px"
+    >
+      <Wrapper
+        height="fit-content"
+        flex="flex"
+        bground="#00000090"
+        width="100%"
+        padding="50px"
+      >
+        <Title bground="transparent">Country Details:</Title>
+        <Container margin="0 20px" bground="transparent">
+          <img
+            src={country.flags}
+            alt={country.id}
+            style={{ borderRadius: "25px" }}
+            width="300px"
+            height="200px"
+          />
+        </Container>
         <Wrapper
-          width="100%"
+          width="fit-content"
           height="fit-content"
           flex="flex"
-          jContent="center"
-          aItems="center"
-          padding="40px"
-          bground="#00000080"
+          aItems="flex-start"
         >
-          <Container
-            width="50%"
-            height="350px"
-            bground={`url(${detail[0].flags}) no-repeat`}
-          >
+          <Container margin="0 20px" padding="50px" bground="transparent">
             <Title
-              fSize="1em"
-              bRadius="25px 0"
-              width="50%"
-              bground="chocolate"
               tAlign="left"
-              fWeight="bold"
-              padding="20px"
+              color="Chocolate"
+              padding="10px 0"
+              bground="transparent"
             >
-              {detail[0].name}
+              Country
             </Title>
+            <p>{country.name}.</p>
+            <Title
+              tAlign="left"
+              color="Chocolate"
+              padding="10px 0"
+              bground="transparent"
+            >
+              Capital
+            </Title>
+            <p>{country.capital}.</p>
+            <Title
+              tAlign="left"
+              color="Chocolate"
+              padding="10px 0"
+              bground="transparent"
+            >
+              Population
+            </Title>
+            <p>{country.population} Habitants.</p>
           </Container>
-
-          <Wrapper width="20%" height="fit-content" padding="0 50px">
+          <Container margin="0 20px" padding="50px" bground="transparent">
             <Title
-              color="chocolate"
-              fWeight="bold"
-              width="fit-content"
+              tAlign="left"
+              color="Chocolate"
+              padding="10px 0"
               bground="transparent"
-              padding="5px 0"
             >
-              Capital:
+              Area
             </Title>
-            <p style={{ marginBottom: "10px" }}>{detail[0].capital}</p>
+            <p>{country.area} Km<sup>2</sup>.</p>
             <Title
-              color="chocolate"
-              fWeight="bold"
-              width="fit-content"
+              tAlign="left"
+              color="Chocolate"
+              padding="10px 0"
               bground="transparent"
-              padding="5px 0"
             >
-              Population:
+              Continent
             </Title>
-            <p style={{ marginBottom: "10px" }}>{detail[0].population}</p>
-            <Title
-              color="chocolate"
-              fWeight="bold"
-              width="fit-content"
-              bground="transparent"
-              padding="5px 0"
-            >
-              Area:
-            </Title>
-            <p style={{ marginBottom: "10px" }}>{detail[0].area}</p>
-            <Title
-              color="chocolate"
-              fWeight="bold"
-              width="fit-content"
-              bground="transparent"
-              padding="5px 0"
-            >
-              Continent:
-            </Title>
-            <p style={{ marginBottom: "10px" }}>{detail[0].continents[0]}</p>
-            <Title
-              color="chocolate"
-              fWeight="bold"
-              width="fit-content"
-              bground="transparent"
-              padding="5px 0"
-            >
-              Activities:
-            </Title>
-            <Ul>
-              {detail[0].activities.map((a) => (
-                <Li key={Math.random(0,10)} style={{ margin: "0 10px 0 0" }}>{a.name}</Li>
-              ))}
-            </Ul>
-          </Wrapper>
+            <p>{country.continents}.</p>
+            {country.activities?.length ?
+            (
+              <>
+                <Title
+                  tAlign="left"
+                  color="Chocolate"
+                  padding="10px 0"
+                  bground="transparent"
+                >
+                  Activities
+                </Title>
+                {country.activities?.map((a) => (
+                  <p style={{paddingBottom: "10px"}} key={Math.random(0, 10)}>{a.name}.</p>
+                ))}
+              </>
+            ): ""}
+          </Container>
         </Wrapper>
-      ) : (
-        <Wrapper height="fit-content">
-          <Loading />
-          <Title bground="transparent">Loading...</Title>
-        </Wrapper>
-      )}
+      </Wrapper>
     </Wrapper>
   );
 };
