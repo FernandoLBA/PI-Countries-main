@@ -50,21 +50,13 @@ const countriesReducer = (state = initialState, { type, payload }) => {
       switch (payload) {
         case "activities":
           return { ...state, modifiedCountries: [...state.countries] };
-      
+
         default:
           let countriesByActivity = [...state.countries].filter((c) =>
             c.activities.some((a) => a.name === payload)
           );
           return { ...state, modifiedCountries: countriesByActivity };
       }
-      // if (payload === "activities")
-      // return { ...state, modifiedCountries: [...state.countries] };
-      // else {
-      //   let countriesByActivity = [...state.countries].filter((c) =>
-      //     c.activities.some((a) => a.name === payload)
-      //   );
-      //   return { ...state, modifiedCountries: countriesByActivity };
-      // }
 
     case SORT_COUNTRIES:
       let sorted = [];
@@ -111,7 +103,6 @@ const countriesReducer = (state = initialState, { type, payload }) => {
       return { ...state, modifiedCountries: [...state.countries] };
 
     default:
-      console.log("hola");
       return { ...state, modifiedCountries: [...state.countries] };
   }
 };

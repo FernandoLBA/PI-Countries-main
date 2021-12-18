@@ -9,7 +9,7 @@ const Cards = ({ modifiedCountries }) => {
       width="100%"
       height="fit-content"
       flex="flex"
-      jContent="center"
+      jContent="space-between"
       aItems="center"
       padding="50px"
       bground="#00000080"

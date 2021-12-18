@@ -15,7 +15,7 @@ const Card = ({ country }) => {
         height="280px"
         bground={`url(${country.flags}) no-repeat`}
         bSize="300px 68%"
-        margin="10px"
+        margin="0 0 50px 0"
       >
         {/* Contenedor de textos */}
         <Container
