@@ -52,6 +52,7 @@ const Detail = () => {
           height="fit-content"
           flex="flex"
           aItems="flex-start"
+          bRadius="0"
         >
           <Container padding="25px 50px 0 0" bground="transparent">
             <Title

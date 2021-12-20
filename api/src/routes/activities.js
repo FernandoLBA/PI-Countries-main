@@ -12,10 +12,10 @@ router.get("/activities", async (req, res) => {
 });
 
 router.post("/activities", async (req, res) => {
-  const { id, activities } = req.body;
-  await postActivity(id, activities);
-
-  res.send("Activity created");
+  const { countries, activity } = req.body;
+  await postActivity(countries, activity)
+  
+  res.send("Activity created succesfully");
 });
 
 module.exports = router;

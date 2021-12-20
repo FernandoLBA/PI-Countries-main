@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Wrapper } from "../../StyledComponents/Wrapper";
 import { Title } from "../../StyledComponents/Title";
 import { loadCountries } from "../../Redux/Actions/countriesActions";
+import { getActivities } from "../../Redux/Actions/activitiesActions";
 
 const Home = ({ continents }) => {
   const countries = useSelector((state) => state.countriesReducer.countries);
@@ -17,7 +18,8 @@ const Home = ({ continents }) => {
   );
 
   useEffect(() => {
-    dispatch(loadCountries(loadCountries()));
+    dispatch(loadCountries());
+    dispatch(getActivities());
   }, [dispatch]);
 
   return (

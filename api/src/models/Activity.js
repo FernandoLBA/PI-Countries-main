@@ -9,23 +9,20 @@ module.exports = (sequelize) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
       },
       difficulty: {
-        type: DataTypes.STRING,
-        // type: DataTypes.ENUM("1", "2", "3", "4", "5"),
+        type: DataTypes.ENUM("1", "2", "3", "4", "5"),
       },
       duration: {
-        // entre 1 y 5
         type: DataTypes.STRING,
       },
       season: {
-        // verano, otoño, invierno y/o primavera)
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        // type: DataTypes.ENUM("Summer", "Winter", "Autumn", "Spring"),
+        type: DataTypes.ENUM("Summer", "Winter", "Autumn", "Spring"),
       },
     },
     {
       timestamps: false,
-    }
+    },
   );
 };

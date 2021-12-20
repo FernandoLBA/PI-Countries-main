@@ -9,25 +9,48 @@ const getActivities = async () => {
   }
 };
 
-const postActivity = (idCountry, activities) => {
+const postActivity = async (
+  countries,
+  { name, difficulty, duration, season }
+) => {
   try {
-    activities.map(async (a) => {
+    for (let i = 0; i < countries.length; i++) {
       const [newActivity] = await Activity.findOrCreate({
-        where: { name: a.name },
+        where: { name },
         defaults: {
-          name: a.name,
-          difficulty: a.difficulty,
-          duration: a.duration,
-          season: a.season,
+          name,
+          difficulty,
+          duration,
+          season,
         },
       });
 
-      let countryBD = await Country.findByPk(idCountry);
-      countryBD.addActivity(newActivity);
-    });
+      const country = await Country.findByPk(countries[i]);
+      country.addActivity(newActivity);
+    }
   } catch (error) {
     console.log(error);
   }
 };
+// const postActivity = (idCountry, activities) => {
+//   try {
+//     activities.map(async (a) => {
+//       const [newActivity] = await Activity.findOrCreate({
+//         where: { name: a.name },
+//         defaults: {
+//           name: a.name,
+//           difficulty: a.difficulty,
+//           duration: a.duration,
+//           season: a.season,
+//         },
+//       });
 
-module.exports = {postActivity, getActivities};
+//       let countryBD = await Country.findByPk(idCountry);
+//       countryBD.addActivity(newActivity);
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+module.exports = { postActivity, getActivities };
