@@ -1,6 +1,11 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { handleInputs } from "../../Helpers/handleInputs";
+import {
+  getActivities,
+  setActivities,
+} from "../../Redux/Actions/activitiesActions";
+import { getCountries } from "../../Redux/Actions/countriesActions";
 import { Button } from "../../StyledComponents/Button";
 import { Span } from "../../StyledComponents/Span";
 import { Title } from "../../StyledComponents/Title";
@@ -8,9 +13,10 @@ import { Wrapper } from "../../StyledComponents/Wrapper";
 
 const Create = () => {
   const countries = useSelector((state) => state.countriesReducer.countries);
+  const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
     name: "",
-    difficulty: "0",
+    difficulty: "1",
     duration: "",
     season: "",
     countries: [],
@@ -29,7 +35,24 @@ const Create = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(setActivities(inputs));
+    alert("Activity created succesfully");
+
+    setInputs({
+      name: "",
+      difficulty: "1",
+      duration: "",
+      season: "",
+      countries: [],
+    });
   };
+
+  useEffect(() => {
+    return () => {
+      dispatch(getCountries());
+      dispatch(getActivities());
+    };
+  }, [dispatch]);
 
   return (
     <Wrapper
@@ -49,15 +72,17 @@ const Create = () => {
         width="100%"
         padding="50px"
       >
-        <Title bground="transparent">Create your activity:</Title>
-        <form onSubmit={handleSubmit}>
+        <Title bground="transparent" padding="0 0 50px 0">
+          Create your activity:
+        </Title>
+        <form onSubmit={handleSubmit} style={{ width: "100%" }}>
           <Title
             tAlign="left"
             color="Chocolate"
             padding="10px 0"
             bground="transparent"
           >
-            Activity Name
+            Name
           </Title>
           <input
             name="name"
@@ -71,7 +96,7 @@ const Create = () => {
             padding="10px 0"
             bground="transparent"
           >
-            Activity Difficulty
+            Difficulty
           </Title>
           <Wrapper width="fit-content" height="fit-Content" flex="flex">
             <input
@@ -93,7 +118,7 @@ const Create = () => {
             padding="10px 0"
             bground="transparent"
           >
-            Activity Duration
+            Duration
           </Title>
           <input
             name="duration"
@@ -107,7 +132,7 @@ const Create = () => {
             padding="10px 0"
             bground="transparent"
           >
-            Activity Season
+            Season
           </Title>
           <select
             name="season"
@@ -137,7 +162,7 @@ const Create = () => {
               </option>
             ))}
           </select>
-          
+
           {/* TAGS */}
           <Wrapper
             bRadius="0"
@@ -159,8 +184,10 @@ const Create = () => {
               </Button>
             ))}
           </Wrapper>
+          <Button type="submit" margin="10px 0 0 0">
+            create
+          </Button>
         </form>
-        <Button type="submit" margin="20px 0 0 0">create</Button>
       </Wrapper>
     </Wrapper>
   );

@@ -10,8 +10,7 @@ const getActivities = async () => {
 };
 
 const postActivity = async (
-  countries,
-  { name, difficulty, duration, season }
+  { name, difficulty, duration, season, countries }
 ) => {
   try {
     for (let i = 0; i < countries.length; i++) {

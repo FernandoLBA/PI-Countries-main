@@ -8,5 +8,4 @@ export const handleInputs = (e, setInputs, inputs) => {
           : [...inputs.countries]
         : e.target.value,
   });
-  console.log(inputs);
 };

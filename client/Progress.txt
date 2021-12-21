@@ -39,4 +39,5 @@
 --[done] Campo select con paises cargados.
 --[done] Tags con los países añadidos (posibilidad de borrar).
 [done] Botón de agregar.
-[] Que haga el post correctamente.
+[done] Que haga el post correctamente.
+[] validar formulario.

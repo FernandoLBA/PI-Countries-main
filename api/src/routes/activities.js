@@ -11,9 +11,8 @@ router.get("/activities", async (req, res) => {
   res.send(allActivities);
 });
 
-router.post("/activities", async (req, res) => {
-  const { countries, activity } = req.body;
-  await postActivity(countries, activity)
+router.post("/activity", async (req, res) => {
+  await postActivity(req.body);
   
   res.send("Activity created succesfully");
 });

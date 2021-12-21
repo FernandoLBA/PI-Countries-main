@@ -15,9 +15,21 @@ export const getActivities = () => {
   };
 };
 
-export const setActivities = (activity) => {
- 
- return async function(){ axios.post("/activities", {
-
- })}
-}
+export const setActivities = ({
+  name,
+  difficulty,
+  duration,
+  season,
+  countries,
+}) => {
+  return async function () {
+    await axios
+      .post("http://localhost:3001/activity", {
+        name,
+        difficulty,
+        duration,
+        season,
+        countries,
+      });
+  };
+};
