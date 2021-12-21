@@ -3,8 +3,11 @@ import { Ul, Li } from "../../StyledComponents/ListLi";
 import { Button } from "../../StyledComponents/Button";
 import { Links } from "../../StyledComponents/Links";
 import { Wrapper } from "../../StyledComponents/Wrapper";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <Wrapper
       flex="flex"
@@ -30,7 +33,7 @@ const Navbar = () => {
           <Links to="/home">
             <Li>Home</Li>
           </Links>
-          <Button color="chocolate" bground="#F0FFFF">
+          <Button color="chocolate" bground="#F0FFFF" onClick={() => navigate("/create")}>
             add activity
           </Button>
         </Wrapper>

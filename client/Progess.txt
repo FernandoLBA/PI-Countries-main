@@ -31,11 +31,12 @@
 
 </> CREATE PAGE []
 ** FORMULARIO CONTROLADO
---[] Campo nombre de actividad. (Soólo letras)
---[] Campo Dificultad del 1 al 5 (range o select). (Soólo números)
---[] Campo temporada. (select)
---[] Campo duración. (Solo números)
+--[done] Campo nombre de actividad. (Solo letras)
+--[done] Campo Dificultad del 1 al 5 (range o select). (Solo números)
+--[done] Campo temporada. (select)
+--[done] Campo duración. (Solo números)
 ** AGREGAR UNO O VARIOS PAÍSES EN SIMULTÁNEO
---[] Campo select con paises cargados.
---[] Tags con los países añadidos (posibilidad de borrar).
-[] Botón de agregar.
+--[done] Campo select con paises cargados.
+--[done] Tags con los países añadidos (posibilidad de borrar).
+[done] Botón de agregar.
+[] Que haga el post correctamente.

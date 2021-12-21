@@ -1,13 +1,18 @@
 import "./App.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getContinents, getCountries, loadCountries } from "./Redux/Actions/countriesActions";
+import {
+  getContinents,
+  getCountries,
+  loadCountries,
+} from "./Redux/Actions/countriesActions";
 import { getActivities } from "./Redux/Actions/activitiesActions";
 import { Route, Routes } from "react-router";
 import Landing from "./Components/Landing/Landing";
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Components/Home/Home";
 import Detail from "./Components/Detail/Detail";
+import Create from "./Components/Create/Create";
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +56,15 @@ function App() {
             <>
               <Navbar />
               <Detail />
+            </>
+          }
+        />
+        <Route
+          path="/create"
+          element={
+            <>
+              <Navbar />
+              <Create />
             </>
           }
         />

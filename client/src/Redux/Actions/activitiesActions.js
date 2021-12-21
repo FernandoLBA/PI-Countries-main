@@ -14,3 +14,10 @@ export const getActivities = () => {
       .catch((err) => console.log(err));
   };
 };
+
+export const setActivities = (activity) => {
+ 
+ return async function(){ axios.post("/activities", {
+
+ })}
+}
