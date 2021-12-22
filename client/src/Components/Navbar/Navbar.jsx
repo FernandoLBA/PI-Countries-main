@@ -28,7 +28,7 @@ const Navbar = () => {
           bRadius="0"
           width="230px"
           bground="transparent"
-          height="fit-content"
+          height="60px"
         >
           <Links to="/home">
             <Li>Home</Li>
