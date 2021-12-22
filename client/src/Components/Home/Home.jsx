@@ -1,26 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Cards from "../Cards/Cards";
 import Modifiers from "../Modifiers/Modifiers";
 import Loading from "../Loading/Loading";
-import Paginate from "../Paginate/Paginate";
 import { Container } from "../../StyledComponents/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { Wrapper } from "../../StyledComponents/Wrapper";
 import { Title } from "../../StyledComponents/Title";
 import { loadCountries } from "../../Redux/Actions/countriesActions";
 import { getActivities } from "../../Redux/Actions/activitiesActions";
+import Pagination from "../Pagination/Pagination";
+import { paginate, cutterPage } from "../../Helpers/paginate";
 
 const Home = ({ continents }) => {
   const countries = useSelector((state) => state.countriesReducer.countries);
-  const dispatch = useDispatch();
   let modifiedCountries = useSelector(
     (state) => state.countriesReducer.modifiedCountries
+  );
+  const dispatch = useDispatch();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [paginatedCountries, setPaginatedCountries] = useState(
+    cutterPage(currentPage, 10, modifiedCountries || countries)
   );
 
   useEffect(() => {
     dispatch(loadCountries());
     dispatch(getActivities());
   }, [dispatch]);
+  
+  useEffect(() => {
+    setPaginatedCountries(cutterPage(currentPage, 10, modifiedCountries));
+  }, [modifiedCountries, currentPage])
 
   return (
     <Wrapper
@@ -30,19 +39,27 @@ const Home = ({ continents }) => {
       height="fit-content"
       padding="50px 0"
       bRadius="0"
-      >
+    >
       <Modifiers continents={continents} />
-      <Paginate />
+        {/* Pagination Buttons */}
+        <Wrapper width="35%" height="fit-content" flex="flex" margin="50px 0 0">
+          {paginate(modifiedCountries?.length)?.map((c) => (
+            <Pagination key={c} num={c} setCurrentPage={setCurrentPage} />
+          ))}
+        </Wrapper>
+  
       <Container
         height="fit-content"
         width="100%"
         padding="50px"
         bground="transparent"
       >
-        {countries?.length ? (
+
+        {/* Countries */}
+        {modifiedCountries?.length ? (
           <Cards
             modifiedCountries={
-              modifiedCountries.length ? modifiedCountries : countries
+              paginatedCountries?.length ? paginatedCountries : modifiedCountries
             }
           />
         ) : (

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { formValidator } from "../../Helpers/formValidator";
 import { handleInputs } from "../../Helpers/handleInputs";
 import {
   getActivities,
@@ -33,18 +34,26 @@ const Create = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(setActivities(inputs));
-    alert("Activity created succesfully");
-
-    setInputs({
-      name: "",
-      difficulty: "1",
-      duration: "",
-      season: "",
-      countries: [],
-    });
+    if (formValidator()) {
+      try {
+        await dispatch(setActivities(inputs));
+        alert("Activity created succesfully");
+        setInputs({
+          name: "",
+          difficulty: "1",
+          duration: "",
+          season: "",
+          countries: [],
+        });
+        document.getElementById("countries").value = "Select here...";
+        document.getElementById("name").select();
+      } catch (error) {
+        alert(error);
+        document.getElementById("name").select();
+      }
+    }
   };
 
   useEffect(() => {
@@ -85,6 +94,7 @@ const Create = () => {
             Name
           </Title>
           <input
+            id="name"
             name="name"
             type="text"
             value={inputs.name}
@@ -155,7 +165,7 @@ const Create = () => {
             Countries
           </Title>
           <select name="countries" id="countries" onChange={handleInput}>
-            <option value="select">Select here...</option>
+            <option>Select here...</option>
             {countries.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name}

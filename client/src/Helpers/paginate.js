@@ -7,12 +7,16 @@ export const paginate = (quantity) => {
     pages.push(counter + 1);
     counter++;
   }
-
   return pages;
 };
 
-export const paginator = (currentePage, countries) => {
-  const nextPage = countries.slice();
+export const cutterPage = (currentPage, countriesPerPage, countries,) => {
+  let lastCountry = currentPage * countriesPerPage;
+  let firstCountry =  lastCountry - countriesPerPage;
+  let pageCutted = countries.slice(firstCountry, lastCountry);
+  
+  console.log(pageCutted)
+  return pageCutted;
 };
 
 // sofia niño de rivera (comediante mexicana)

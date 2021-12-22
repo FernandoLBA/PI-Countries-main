@@ -41,12 +41,19 @@ const countriesReducer = (state = initialState, { type, payload }) => {
       return { ...state, countryDetail: [] };
 
     case FILTER_BY_CONTINENTS:
-      let countriesByContinent = [...state.countries].filter(
-        (c) => c.continents[0] === payload
-      );
-      return { ...state, modifiedCountries: countriesByContinent };
+      switch (payload) {
+        case "continents":
+          return { ...state, modifiedCountries: [...state.countries] };
+
+        default:
+          let countriesByContinent = [...state.countries].filter(
+            (c) => c.continents[0] === payload
+          );
+          return { ...state, modifiedCountries: countriesByContinent };
+      }
 
     case FILTER_BY_ACTIVITIES:
+      console.log(payload);
       switch (payload) {
         case "activities":
           return { ...state, modifiedCountries: [...state.countries] };
