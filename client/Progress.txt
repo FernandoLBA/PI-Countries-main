@@ -2,7 +2,7 @@
 [done] Imagen representativa.
 [done] Botón de ingreso al home.
 
-</> HOME PAGE []
+</> HOME PAGE [done]
 [done] Input de búsqueda.
 [done] Área para renderizar países.
 ** PAISES
@@ -16,7 +16,7 @@
 --[done] Ordenar alfabéticamente.
 --[done] Ordenar por población.
 ** PAGINADO
---[] Primeros 10 países por página.
+--[done] Primeros 10 países por página.
 
 
 </> DETAIL PAGE [done]

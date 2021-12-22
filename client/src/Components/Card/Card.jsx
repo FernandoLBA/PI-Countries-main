@@ -12,28 +12,31 @@ const Card = ({ country }) => {
       {/* CARD */}
       <Wrapper
         width="300px"
-        height="280px"
+        height="310px"
         bground={`url(${country.flags}) no-repeat`}
         bSize="300px 68%"
         margin="0 0 50px 0"
+        // border="2px solid green"
       >
         {/* Contenedor de textos */}
         <Container
           width="100%"
-          height="33%"
-          margin="66% 0 0 0"
+          height="30%"
+          margin="73% 0 0 0"
           bRadius="0"
           bground="azure"
+          // border="2px solid red"
         >
           {/* Wrapper de los textos */}
           <Wrapper
             width="100%"
             bRadius="0"
             padding="20px"
-            height="90%"
+            height="100%"
             flex="flex"
             fDirection="column"
             jContent="space-around"
+            // border="2px solid blue"
           >
             <Title
               fSize=".8em"
