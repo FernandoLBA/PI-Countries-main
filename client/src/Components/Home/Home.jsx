@@ -42,7 +42,7 @@ const Home = ({ continents }) => {
     >
       <Modifiers continents={continents} />
         {/* Pagination Buttons */}
-        <Wrapper width="35%" height="fit-content" flex="flex" margin="5 0px 0 0">
+        <Wrapper width="35%" height="fit-content" flex="flex" margin="50px 0 0">
           {paginate(modifiedCountries?.length)?.map((c) => (
             <Pagination key={c} num={c} setCurrentPage={setCurrentPage} />
           ))}
