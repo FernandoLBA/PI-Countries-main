@@ -1,5 +1,5 @@
 export const searchValidator = (input, setError) => {
-  const regex = { search: /^[a-zA-ZA-y\s]{1,40}$/ };
+  const regex = { search: /^[a-zA-ZA-y\s]{3,80}$/ };
   //   Si tiene mas de 2 caracteres
   if (input.length > 2) {
     if (regex.search.test(input)) {

@@ -8,7 +8,7 @@ export const Paragraph = styled.p`
 
   &.error {
     color: azure;
-    padding: 5px 10px;
+    padding: 5px 15px;
     border-radius: 25px;
     background: crimson;
   }

@@ -15,7 +15,6 @@ export const cutterPage = (currentPage, countriesPerPage, countries,) => {
   let firstCountry =  lastCountry - countriesPerPage;
   let pageCutted = countries.slice(firstCountry, lastCountry);
   
-  console.log(pageCutted)
   return pageCutted;
 };
 

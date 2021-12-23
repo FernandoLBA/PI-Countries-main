@@ -24,12 +24,24 @@ const Create = () => {
     name: "",
     difficulty: "1",
     duration: "",
-    season: "",
+    season: "Select here...",
     countries: [],
+  });
+  const [error, setError] = useState({
+    name: "",
+    difficulty: "",
+    duration: "",
+    season: "",
+    countries: "",
   });
 
   const handleInput = (e) => {
-    handleInputs(e, setInputs, inputs);
+    try {
+      handleInputs(e, setInputs, inputs);
+      formValidator(e, error, setError);
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   const handleTags = (e) => {
@@ -41,7 +53,10 @@ const Create = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formValidator()) {
+
+    //  REEMPLAZAR POR error.ready
+    console.log(error.ready())
+    if (error.ready()) {
       try {
         await dispatch(setActivities(inputs));
         alert("Activity created succesfully");
@@ -62,9 +77,9 @@ const Create = () => {
   };
 
   useEffect(() => {
-    return () => {
-      dispatch(getCountries());
-      dispatch(getActivities());
+    return async () => {
+      await dispatch(getCountries());
+      await dispatch(getActivities());
     };
   }, [dispatch]);
 
@@ -97,13 +112,18 @@ const Create = () => {
             Name
           </Title>
           <Input
+            className={error.name ? "error" : ""}
             id="name"
             name="name"
             type="text"
             value={inputs.name}
             onChange={handleInput}
           />
-
+          {error.name && (
+            <Paragraph margin="10px" className="error">
+              {error.name}
+            </Paragraph>
+          )}
           <Title
             tAlign="left"
             color="Chocolate"
@@ -119,6 +139,7 @@ const Create = () => {
             jContent="space-between"
           >
             <Input
+              className={error.difficulty ? "error" : ""}
               name="difficulty"
               type="range"
               min="1"
@@ -131,7 +152,11 @@ const Create = () => {
               {inputs.difficulty}
             </Span>
           </Wrapper>
-
+          {error.difficulty && (
+            <Paragraph margin="10px" className="error">
+              {error.difficulty}
+            </Paragraph>
+          )}
           <Title
             tAlign="left"
             color="Chocolate"
@@ -141,13 +166,17 @@ const Create = () => {
             Duration
           </Title>
           <Input
-            className="field"
+            className={error.duration ? "error" : ""}
             name="duration"
             type="text"
             value={inputs.duration}
             onChange={handleInput}
           />
-
+          {error.duration && (
+            <Paragraph margin="10px" className="error">
+              {error.duration}
+            </Paragraph>
+          )}
           <Title
             tAlign="left"
             color="Chocolate"
@@ -157,7 +186,7 @@ const Create = () => {
             Season
           </Title>
           <Select
-            className="field"
+            className={error.season ? "error" : ""}
             name="season"
             id="season"
             onChange={handleInput}
@@ -169,6 +198,11 @@ const Create = () => {
             <Option value="Spring">Spring</Option>
             <Option value="Summer">Summer</Option>
           </Select>
+          {error.season && (
+            <Paragraph margin="10px" className="error">
+              {error.season}
+            </Paragraph>
+          )}
           <Title
             tAlign="left"
             color="Chocolate"
@@ -177,7 +211,12 @@ const Create = () => {
           >
             Countries
           </Title>
-          <Select name="countries" id="countries" onChange={handleInput}>
+          <Select
+            className={error.countries ? "error" : ""}
+            name="countries"
+            id="countries"
+            onChange={handleInput}
+          >
             <Option>Select here...</Option>
             {countries.map((c) => (
               <Option key={c.id} value={c.id}>
@@ -185,12 +224,16 @@ const Create = () => {
               </Option>
             ))}
           </Select>
-
+          {error.countries && inputs.countries.length < 1 && (
+            <Paragraph margin="10px" className="error">
+              {error.countries}
+            </Paragraph>
+          )}
           {/* TAGS */}
           <Wrapper
             bRadius="0"
             padding="15px 0"
-            width="fit-content"
+            width="100%"
             flex="flex"
             height="fit-content"
           >
@@ -198,20 +241,19 @@ const Create = () => {
               <Button
                 key={c}
                 name={c}
-                color="black"
+                color="red"
                 margin="0 10px 10px 0"
                 onClick={handleTags}
                 bground={`url("${
-                  countries.find((country) => country.id === c).flags
+                  countries?.find((country) => country.id === c)?.flags
                 }") no-repeat center/100%`}
               >
-                <Paragraph className="error">
-                  X
-                </Paragraph>
+                REMOVE
               </Button>
             ))}
           </Wrapper>
-          <Wrapper width="100%" flex="flex">
+
+          <Wrapper width="100%" flex="flex" height="fit-content">
             <Button type="submit" margin="10px 0 0 0">
               create
             </Button>
