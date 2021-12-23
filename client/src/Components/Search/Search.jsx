@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
 import { searchValidator } from "../../Helpers/searchValidator";
 import { getCountryByName } from "../../Redux/Actions/countriesActions";
 import { Button } from "../../StyledComponents/Button";
+import { Form } from "../../StyledComponents/Form";
+import { Input } from "../../StyledComponents/Input";
+import { Paragraph } from "../../StyledComponents/Paragraph";
 import { Wrapper } from "../../StyledComponents/Wrapper";
 
 const Search = () => {
@@ -29,12 +31,13 @@ const Search = () => {
 
   return (
     <Wrapper flex="flex" width="fit-content">
-      <form onSubmit={handleSubmit}>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <Input
           id="search"
           name="search"
-          className={error ? "danger" : ""}
+          className={error ? "error" : ""}
           type="text"
+          width="61%"
           value={input}
           onChange={handleInput}
           placeholder="Search here..."
@@ -43,18 +46,14 @@ const Search = () => {
           Search
         </Button>
         {error && (
-          <p
-            style={{
-              position: "absolute",
-              color: "crimson",
-              marginTop: "5px",
-              fontSize: ".8em",
-            }}
+          <Paragraph
+          className="error"
+          margin="10px 0 0"
           >
             {error}
-          </p>
+          </Paragraph>
         )}
-      </form>
+      </Form>
     </Wrapper>
   );
 };

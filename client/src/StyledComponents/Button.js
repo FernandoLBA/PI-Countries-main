@@ -9,7 +9,7 @@ export const Button = styled.button`
   margin: ${({ margin }) => margin || "0"};
   border: ${({ border }) => "2px solid " + border || "none"};
   color: ${({ color }) => color || "#F0FFFF"};
-  background-color: ${({ bground }) => bground || "#D2691E"};
+  background: ${({ bground }) => bground || "#D2691E"};
   font-size: ${({ fSize }) => fSize || ".8em"};
   cursor: pointer;
   transition: ease all 1s;

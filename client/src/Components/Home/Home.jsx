@@ -37,7 +37,7 @@ const Home = ({ continents }) => {
       jContent="center"
       width="100vw"
       height="fit-content"
-      padding="50px 0"
+      padding="135px 0"
       bRadius="0"
     >
       <Modifiers continents={continents} />

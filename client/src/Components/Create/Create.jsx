@@ -8,6 +8,11 @@ import {
 } from "../../Redux/Actions/activitiesActions";
 import { getCountries } from "../../Redux/Actions/countriesActions";
 import { Button } from "../../StyledComponents/Button";
+import { Form } from "../../StyledComponents/Form";
+import { Input } from "../../StyledComponents/Input";
+import { Option } from "../../StyledComponents/Option";
+import { Paragraph } from "../../StyledComponents/Paragraph";
+import { Select } from "../../StyledComponents/Select";
 import { Span } from "../../StyledComponents/Span";
 import { Title } from "../../StyledComponents/Title";
 import { Wrapper } from "../../StyledComponents/Wrapper";
@@ -68,15 +73,13 @@ const Create = () => {
       flex="flex"
       aItems="center"
       width="100vw"
-      height="85vh"
+      height="100vh"
       bground="transparent"
       padding="0 50px"
     >
       <Wrapper
         height="fit-content"
         flex="flex"
-        fDirection="column"
-        aItems="flex-start"
         bground="#00000090"
         width="100%"
         padding="50px"
@@ -84,7 +87,7 @@ const Create = () => {
         <Title bground="transparent" padding="0 0 50px 0">
           Create your activity:
         </Title>
-        <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+        <Form onSubmit={handleSubmit} width="40%">
           <Title
             tAlign="left"
             color="Chocolate"
@@ -93,13 +96,14 @@ const Create = () => {
           >
             Name
           </Title>
-          <input
+          <Input
             id="name"
             name="name"
             type="text"
             value={inputs.name}
             onChange={handleInput}
           />
+
           <Title
             tAlign="left"
             color="Chocolate"
@@ -108,13 +112,18 @@ const Create = () => {
           >
             Difficulty
           </Title>
-          <Wrapper width="fit-content" height="fit-Content" flex="flex">
-            <input
-              style={{ marginRight: "10px" }}
+          <Wrapper
+            width="100%"
+            height="fit-Content"
+            flex="flex"
+            jContent="space-between"
+          >
+            <Input
               name="difficulty"
               type="range"
               min="1"
               max="5"
+              width="95%"
               value={inputs.difficulty}
               onChange={handleInput}
             />
@@ -122,6 +131,7 @@ const Create = () => {
               {inputs.difficulty}
             </Span>
           </Wrapper>
+
           <Title
             tAlign="left"
             color="Chocolate"
@@ -130,12 +140,14 @@ const Create = () => {
           >
             Duration
           </Title>
-          <input
+          <Input
+            className="field"
             name="duration"
             type="text"
             value={inputs.duration}
             onChange={handleInput}
           />
+
           <Title
             tAlign="left"
             color="Chocolate"
@@ -144,18 +156,19 @@ const Create = () => {
           >
             Season
           </Title>
-          <select
+          <Select
+            className="field"
             name="season"
             id="season"
             onChange={handleInput}
             value={inputs.season}
           >
-            <option>Select here...</option>
-            <option value="Autumn">Autumn</option>
-            <option value="Winter">Winter</option>
-            <option value="Spring">Spring</option>
-            <option value="Summer">Summer</option>
-          </select>
+            <Option>Select here...</Option>
+            <Option value="Autumn">Autumn</Option>
+            <Option value="Winter">Winter</Option>
+            <Option value="Spring">Spring</Option>
+            <Option value="Summer">Summer</Option>
+          </Select>
           <Title
             tAlign="left"
             color="Chocolate"
@@ -164,40 +177,46 @@ const Create = () => {
           >
             Countries
           </Title>
-          <select name="countries" id="countries" onChange={handleInput}>
-            <option>Select here...</option>
+          <Select name="countries" id="countries" onChange={handleInput}>
+            <Option>Select here...</Option>
             {countries.map((c) => (
-              <option key={c.id} value={c.id}>
+              <Option key={c.id} value={c.id}>
                 {c.name}
-              </option>
+              </Option>
             ))}
-          </select>
+          </Select>
 
           {/* TAGS */}
           <Wrapper
             bRadius="0"
-            padding="10px 0"
+            padding="15px 0"
             width="fit-content"
             flex="flex"
-            jContent="flex-start"
             height="fit-content"
           >
             {inputs.countries?.map((c) => (
               <Button
                 key={c}
                 name={c}
-                bground="crimson"
+                color="black"
                 margin="0 10px 10px 0"
                 onClick={handleTags}
+                bground={`url("${
+                  countries.find((country) => country.id === c).flags
+                }") no-repeat center/100%`}
               >
-                {c}
+                <Paragraph className="error">
+                  X
+                </Paragraph>
               </Button>
             ))}
           </Wrapper>
-          <Button type="submit" margin="10px 0 0 0">
-            create
-          </Button>
-        </form>
+          <Wrapper width="100%" flex="flex">
+            <Button type="submit" margin="10px 0 0 0">
+              create
+            </Button>
+          </Wrapper>
+        </Form>
       </Wrapper>
     </Wrapper>
   );

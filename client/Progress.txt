@@ -41,3 +41,11 @@
 [done] Botón de agregar.
 [done] Que haga el post correctamente.
 [] validar formulario.
+
+</> TESTINGS []
+** FRONTEND
+--[] Campo nombre de actividad. (Solo letras)
+** BACKEND
+--[] Campo nombre de actividad. (Solo letras)
+** MODELO DE LA DATABASE
+--[] Campo nombre de actividad. (Solo letras)

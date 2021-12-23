@@ -15,5 +15,6 @@ export const Wrapper = styled.div`
   backdrop-filter: ${({bDrop}) => bDrop || "none"};
   border-radius: ${({ bRadius }) => bRadius || "25px"};
   border: ${({border}) => border || "none"};
+  position: ${({position}) => position};
   overflow: hidden;
 `;

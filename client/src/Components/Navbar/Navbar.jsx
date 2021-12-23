@@ -16,6 +16,7 @@ const Navbar = () => {
       bRadius="0"
       bground="#D2691E"
       width="100vw"
+      position="fixed"
     >
       <Ul flex="flex" jContent="space-between" width="100%">
         <Links to="/">
