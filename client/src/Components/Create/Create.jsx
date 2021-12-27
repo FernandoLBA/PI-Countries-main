@@ -38,9 +38,10 @@ const Create = () => {
   const handleInput = (e) => {
     try {
       handleInputs(e, setInputs, inputs);
-      formValidator(e, error, setError);
+      formValidator(e, error, setError, inputs.countries.length);
+      console.log(error.ready);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -54,9 +55,32 @@ const Create = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    //  REEMPLAZAR POR error.ready
-    console.log(error.ready())
-    if (error.ready()) {
+    function required() {
+      if (!inputs.name) {
+        setError({ ...error, name: "This field cannot be empty" });
+      } else if (!inputs.duration) {
+        setError({ ...error, duration: "This field cannot be empty" });
+      } else if (inputs.season === "Select here...") {
+        setError({ ...error, season: "This field cannot be empty" });
+      } else if (!inputs.countries.length) {
+        setError({
+          ...error,
+          countries: "Please select one or more countries",
+        });
+      } else {
+        return true;
+      }
+      return false;
+    }
+
+    if (
+      !error.name &&
+      !error.difficulty &&
+      !error.duration &&
+      !error.season &&
+      !error.countries &&
+      required()
+    ) {
       try {
         await dispatch(setActivities(inputs));
         alert("Activity created succesfully");
@@ -137,6 +161,7 @@ const Create = () => {
             height="fit-Content"
             flex="flex"
             jContent="space-between"
+            bRadius="0"
           >
             <Input
               className={error.difficulty ? "error" : ""}
@@ -224,7 +249,7 @@ const Create = () => {
               </Option>
             ))}
           </Select>
-          {error.countries && inputs.countries.length < 1 && (
+          {error.countries && (
             <Paragraph margin="10px" className="error">
               {error.countries}
             </Paragraph>

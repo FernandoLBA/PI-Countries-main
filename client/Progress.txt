@@ -29,7 +29,7 @@
 [done] Población.
 [done] Actividades.
 
-</> CREATE PAGE []
+</> CREATE PAGE [done]
 ** FORMULARIO CONTROLADO
 --[done] Campo nombre de actividad. (Solo letras)
 --[done] Campo Dificultad del 1 al 5 (range o select). (Solo números)
@@ -40,7 +40,7 @@
 --[done] Tags con los países añadidos (posibilidad de borrar).
 [done] Botón de agregar.
 [done] Que haga el post correctamente.
-[] validar formulario.
+[done] validar formulario.
 
 </> TESTINGS []
 ** FRONTEND
