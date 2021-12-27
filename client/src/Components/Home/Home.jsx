@@ -11,7 +11,8 @@ import { getActivities } from "../../Redux/Actions/activitiesActions";
 import Pagination from "../Pagination/Pagination";
 import { paginate, cutterPage } from "../../Helpers/paginate";
 
-const Home = ({ continents }) => {
+
+const Home = () => {
   const countries = useSelector((state) => state.countriesReducer.countries);
   let modifiedCountries = useSelector(
     (state) => state.countriesReducer.modifiedCountries
@@ -40,7 +41,7 @@ const Home = ({ continents }) => {
       padding="135px 0"
       bRadius="0"
     >
-      <Modifiers continents={continents} />
+      <Modifiers />
         {/* Pagination Buttons */}
         <Wrapper width="35%" height="fit-content" flex="flex" margin="50px 0 0">
           {paginate(modifiedCountries?.length)?.map((c) => (

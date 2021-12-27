@@ -19,9 +19,11 @@ const initialState = {
 
 const countriesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    // OBTENER TODOS LOS PAISES
     case GET_COUNTRIES:
       return { ...state, countries: payload };
 
+      // OBTENER TODOS LOS CONTINENTES
     case GET_CONTINENTS:
       let allContinents = [];
       [...state.countries].forEach((c) => {
@@ -31,15 +33,19 @@ const countriesReducer = (state = initialState, { type, payload }) => {
       });
       return { ...state, continents: allContinents };
 
+      // OBTENER PAIS POR NOMBRE
     case GET_COUNTRY_BY_NAME:
       return { ...state, modifiedCountries: payload };
 
+      // OBTENER PAIS POR ID
     case GET_COUNTRY_BY_ID:
       return { ...state, countryDetail: payload };
 
+      // LIMPIAR EL DETALLE DEL PAIS
     case CLEAR_COUNTRY_DETAIL:
       return { ...state, countryDetail: [] };
 
+      // FILTRADO POR CONTINENTES
     case FILTER_BY_CONTINENTS:
       switch (payload) {
         case "continents":
@@ -52,8 +58,8 @@ const countriesReducer = (state = initialState, { type, payload }) => {
           return { ...state, modifiedCountries: countriesByContinent };
       }
 
+      // FILTRADO POR ACTIVIDADES
     case FILTER_BY_ACTIVITIES:
-      console.log(payload);
       switch (payload) {
         case "activities":
           return { ...state, modifiedCountries: [...state.countries] };
@@ -65,6 +71,7 @@ const countriesReducer = (state = initialState, { type, payload }) => {
           return { ...state, modifiedCountries: countriesByActivity };
       }
 
+      // ORDENAMIENTO
     case SORT_COUNTRIES:
       let sorted = [];
       switch (payload) {
@@ -106,9 +113,11 @@ const countriesReducer = (state = initialState, { type, payload }) => {
           return { ...state, modifiedCountries: state.countries };
       }
 
+      // CARGAR LOS PAÍSES EN MODIFIEDCOUNTRIES
     case LOAD_COUNTRIES:
       return { ...state, modifiedCountries: [...state.countries] };
 
+      // RETORNA EL ESTADO
     default:
       return { ...state, modifiedCountries: [...state.countries] };
   }

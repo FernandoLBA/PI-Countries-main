@@ -6,6 +6,7 @@ const initialState = {
 
 const activitiesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    // OBTIENE TODAS LAS ACTIVIDADES
     case GET_ACTIVITIES:
       return { ...state, activities: payload };
 

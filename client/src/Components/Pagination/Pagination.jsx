@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../../StyledComponents/Button";
 
-// recibe props de Home
+// recibe props del componente Home
 const Pagination = ({ num, setCurrentPage }) => {
 
   return (

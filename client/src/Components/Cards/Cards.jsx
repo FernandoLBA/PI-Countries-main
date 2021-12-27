@@ -3,6 +3,7 @@ import { Title } from "../../StyledComponents/Title";
 import { Wrapper } from "../../StyledComponents/Wrapper";
 import Card from "../Card/Card";
 
+// Recibe props del componente Home
 const Cards = ({ modifiedCountries }) => {
   return (
     <Wrapper
@@ -14,7 +15,9 @@ const Cards = ({ modifiedCountries }) => {
       padding="50px"
       bground="#00000080"
     >
-      <Title bground="transparent" padding="0 0 50px 0">Results:</Title>
+      <Title bground="transparent" padding="0 0 50px 0">
+        Results:
+      </Title>
       {modifiedCountries.map((c) => (
         <Card key={c.id} country={c} />
       ))}

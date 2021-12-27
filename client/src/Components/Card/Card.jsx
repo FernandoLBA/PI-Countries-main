@@ -5,6 +5,7 @@ import { Container } from "../../StyledComponents/Container";
 import { Title } from "../../StyledComponents/Title";
 import { Span } from "../../StyledComponents/Span";
 
+// Recibe props del componente Cards
 const Card = ({ country }) => {
 
   return (
@@ -16,7 +17,6 @@ const Card = ({ country }) => {
         bground={`url(${country.flags}) no-repeat`}
         bSize="300px 68%"
         margin="0 0 50px 0"
-        // border="2px solid green"
       >
         {/* Contenedor de textos */}
         <Container
@@ -25,7 +25,6 @@ const Card = ({ country }) => {
           margin="73% 0 0 0"
           bRadius="0"
           bground="azure"
-          // border="2px solid red"
         >
           {/* Wrapper de los textos */}
           <Wrapper
@@ -36,7 +35,6 @@ const Card = ({ country }) => {
             flex="flex"
             fDirection="column"
             jContent="space-around"
-            // border="2px solid blue"
           >
             <Title
               fSize=".8em"

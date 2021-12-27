@@ -39,7 +39,6 @@ const Create = () => {
     try {
       handleInputs(e, setInputs, inputs);
       formValidator(e, error, setError, inputs.countries.length);
-      console.log(error.ready);
     } catch (error) {
       console.log(error);
     }
