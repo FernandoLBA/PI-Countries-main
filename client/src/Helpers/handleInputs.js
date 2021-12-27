@@ -1,3 +1,4 @@
+// recibe el evento, y el state inputs
 export const handleInputs = (e, setInputs, inputs) => {
   try {
     setInputs({
@@ -15,13 +16,3 @@ export const handleInputs = (e, setInputs, inputs) => {
     console.log(error);
   }
 };
-
-// setInputs({
-//   ...inputs,
-//   [e.target.name]:
-//     e.target.name === "countries"
-//       ? !inputs.countries.includes(e.target.value)
-//         ? [...inputs.countries, e.target.value]
-//         : [...inputs.countries]
-//       : e.target.value,
-// });

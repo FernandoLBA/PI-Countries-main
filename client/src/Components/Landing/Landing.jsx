@@ -14,17 +14,18 @@ const Landing = () => {
     <LandingContainer>
       <Container
         bground="transparent"
-        width="78vw"
+        width="100%"
+        padding="0 50px"
         bRadius="0"
         height="40px"
         margin="0 0 50px 0"
       >
-        <MainTitle tAlign="left" width="100%" padding="0 14px">
+        <MainTitle tAlign="left" width="100%" padding="0 230px">
           COUNTRIES
         </MainTitle>
       </Container>
       <Hero>
-        <Title bground="#00000090" padding="20px">
+        <Title bground="#00000090" padding="20px 50px" tAlign="left">
           Find<Span fWeight="bold"> funny activities around the world </Span>
           and have a good time
         </Title>

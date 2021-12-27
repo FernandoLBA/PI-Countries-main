@@ -60,7 +60,7 @@ const Create = () => {
       } else if (!inputs.duration) {
         setError({ ...error, duration: "This field cannot be empty" });
       } else if (inputs.season === "Select here...") {
-        setError({ ...error, season: "This field cannot be empty" });
+        setError({ ...error, season: "Please select one season" });
       } else if (!inputs.countries.length) {
         setError({
           ...error,

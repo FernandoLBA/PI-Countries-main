@@ -46,10 +46,7 @@ const Search = () => {
           Search
         </Button>
         {error && (
-          <Paragraph
-          className="error"
-          margin="10px 0 0"
-          >
+          <Paragraph className="error" margin="10px 0 0">
             {error}
           </Paragraph>
         )}

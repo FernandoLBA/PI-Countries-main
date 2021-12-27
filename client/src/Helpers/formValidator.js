@@ -1,8 +1,10 @@
+// objeto con las expresiones regulares a ser evaluadas
 const regex = {
   name: /^[a-zA-ZA-y\s]{3,80}$/, // solo letras, de 3 a 80 caracteres
   duration: /^\d{1,365}$/, // solo números, de 1 a 365 caracteres
 };
 
+// recibe el evento, el state error y el tamaño del array de países
 export const formValidator = (e, error, setError, countriesLength) => {
   try {
     switch (e.target.name) {

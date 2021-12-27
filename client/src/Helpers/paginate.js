@@ -1,3 +1,4 @@
+// recibe la cantidad de países, se encarga de calcular la cantidad de páginas
 export const paginate = (quantity) => {
   let pages = [];
 
@@ -10,12 +11,12 @@ export const paginate = (quantity) => {
   return pages;
 };
 
+// recibe la página dónde se encuentra actualmente, la cantidad de países por página
+// y un array con los países a paginar
 export const cutterPage = (currentPage, countriesPerPage, countries,) => {
-  let lastCountry = currentPage * countriesPerPage;
-  let firstCountry =  lastCountry - countriesPerPage;
-  let pageCutted = countries.slice(firstCountry, lastCountry);
+  let lastCountry = currentPage * countriesPerPage; // 2 * 10 = 20
+  let firstCountry =  lastCountry - countriesPerPage; // 20 - 10 = 10
+  let pageCutted = countries.slice(firstCountry, lastCountry); // corta (10, 20)
   
   return pageCutted;
 };
-
-// sofia niño de rivera (comediante mexicana)

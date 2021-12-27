@@ -16,7 +16,7 @@ export const Hero = styled.div`
   margin: 0 100px;
   border-radius: 25px;
   height: 65%;
-  width: 75%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;

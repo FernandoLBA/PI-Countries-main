@@ -11,22 +11,27 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         primaryKey: true,
         allowNull: false,
+        require: true,
       },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
+        require: true,
       },
       flags: {
         type: DataTypes.STRING,
         allowNull: false,
+        require: true,
       },
       continents: {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
+        require: true,
       },
       capital: {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
+        require: true,
       },
       subregion: {
         type: DataTypes.STRING,
