@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Navbar from "./Components/Navbar/Navbar"
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('Navbar must have an add activity button', () => {
+  render(<Navbar />);
+  // const btnAddActivity = screen.getByText(/learn react/i);
+  const btnAddActivity = screen.getByText(/add activity/);
+  expect(btnAddActivity).toBeInTheDocument();
 });

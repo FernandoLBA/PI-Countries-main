@@ -46,6 +46,8 @@
 ** FRONTEND
 --[] Campo nombre de actividad. (Solo letras)
 ** BACKEND
---[] Campo nombre de actividad. (Solo letras)
+--[done] Verificar las rutas de Country.
+--[done] Verificar las rutas de Activity.
 ** MODELO DE LA DATABASE
---[] Campo nombre de actividad. (Solo letras)
+--[done] Verificar que el modelo Country contenga los campos requeridos.
+--[done] Verificar que el tipo de datos de los campos del modelo Country sean los requeridos.
