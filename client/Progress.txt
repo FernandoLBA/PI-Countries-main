@@ -42,9 +42,9 @@
 [done] Que haga el post correctamente.
 [done] validar formulario.
 
-</> TESTINGS []
+</> TESTINGS [done]
 ** FRONTEND
---[] Campo nombre de actividad. (Solo letras)
+--[done] Verificar si existe un botón y un título en el componente Landing.
 ** BACKEND
 --[done] Verificar las rutas de Country.
 --[done] Verificar las rutas de Activity.

@@ -5,10 +5,10 @@ import { MainTitle } from "../../StyledComponents/MainTitle";
 import { Title } from "../../StyledComponents/Title";
 import { LandingContainer, Hero } from "./LandingStyled";
 import { Span } from "../../StyledComponents/Span";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <LandingContainer>
@@ -32,7 +32,8 @@ const Landing = () => {
         <Button
           bground="#D2691E"
           margin="50px"
-          onClick={() => (navigate("/home"))}
+          // onClick={() => (navigate("/home"))}
+          onClick={() => (window.location.href = "/home")}
         >
           Let's Go!
         </Button>
