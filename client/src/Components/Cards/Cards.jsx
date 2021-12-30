@@ -18,7 +18,7 @@ const Cards = ({ modifiedCountries }) => {
       <Title bground="transparent" padding="0 0 50px 0">
         Results:
       </Title>
-      {modifiedCountries.map((c) => (
+      {!Array.isArray(modifiedCountries) ? <Title>{modifiedCountries.error}</Title> : modifiedCountries.map((c) => (
         <Card key={c.id} country={c} />
       ))}
     </Wrapper>

@@ -13,10 +13,12 @@ export const paginate = (quantity) => {
 
 // recibe la página dónde se encuentra actualmente, la cantidad de países por página
 // y un array con los países a paginar
-export const cutterPage = (currentPage, countriesPerPage, countries,) => {
+export const cutterPage = (currentPage, countriesPerPage, countries) => {
   let lastCountry = currentPage * countriesPerPage; // 2 * 10 = 20
-  let firstCountry =  lastCountry - countriesPerPage; // 20 - 10 = 10
-  let pageCutted = countries.slice(firstCountry, lastCountry); // corta (10, 20)
-  
+  let firstCountry = lastCountry - countriesPerPage; // 20 - 10 = 10
+  let pageCutted = Array.isArray(countries) // si es un error solo guarda el error
+    ? countries.slice(firstCountry, lastCountry)
+    : null; // corta (10, 20)
+
   return pageCutted;
 };

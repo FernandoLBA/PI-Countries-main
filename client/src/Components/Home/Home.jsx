@@ -11,7 +11,6 @@ import { getActivities } from "../../Redux/Actions/activitiesActions";
 import Pagination from "../Pagination/Pagination";
 import { paginate, cutterPage } from "../../Helpers/paginate";
 
-
 const Home = () => {
   const countries = useSelector((state) => state.countriesReducer.countries);
   let modifiedCountries = useSelector(
@@ -27,10 +26,10 @@ const Home = () => {
     dispatch(loadCountries());
     dispatch(getActivities());
   }, [dispatch]);
-  
+
   useEffect(() => {
     setPaginatedCountries(cutterPage(currentPage, 10, modifiedCountries));
-  }, [modifiedCountries, currentPage])
+  }, [modifiedCountries, currentPage]);
 
   return (
     <Wrapper
@@ -42,34 +41,30 @@ const Home = () => {
       bRadius="0"
     >
       <Modifiers />
-        {/* Pagination Buttons */}
-        <Wrapper width="35%" height="fit-content" flex="flex" margin="50px 0 0">
-          {paginate(modifiedCountries?.length)?.map((c) => (
-            <Pagination key={c} num={c} setCurrentPage={setCurrentPage} />
-          ))}
-        </Wrapper>
-  
+      {/* Pagination Buttons */}
+      <Wrapper width="35%" height="fit-content" flex="flex" margin="50px 0 0">
+        {paginate(modifiedCountries?.length)?.map((c) => (
+          <Pagination key={c} num={c} setCurrentPage={setCurrentPage} />
+        ))}
+      </Wrapper>
+
       <Container
         height="fit-content"
         width="100%"
         padding="50px"
         bground="transparent"
       >
-
         {/* Countries */}
         {modifiedCountries?.length ? (
           <Cards
             modifiedCountries={
-              paginatedCountries?.length ? paginatedCountries : modifiedCountries
+              paginatedCountries?.length
+                ? paginatedCountries
+                : modifiedCountries
             }
           />
         ) : (
-          <>
-            <Loading />
-            <Title bground="transparent" padding="20px">
-              Loading...
-            </Title>
-          </>
+          <Loading error={modifiedCountries.error}/>
         )}
       </Container>
     </Wrapper>
