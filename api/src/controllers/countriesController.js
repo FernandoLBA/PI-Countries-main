@@ -26,11 +26,11 @@ const getCountries = async (query) => {
     if (query) {
       const response = await Country.findAll({
         where: { name: { [Op.iLike]: `%${query}%` } },
-        include: {
-          model: Activity,
-          attributes: ["name", "difficulty", "duration", "season"],
-          through: { attributes: [] },
-        },
+        // include: {
+        //   model: Activity,
+        //   attributes: ["name", "difficulty", "duration", "season"],
+        //   through: { attributes: [] },
+        // },
       });
       return response && response;
     }
