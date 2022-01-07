@@ -5,7 +5,6 @@ import Loading from "../Loading/Loading";
 import { Container } from "../../StyledComponents/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { Wrapper } from "../../StyledComponents/Wrapper";
-import { Title } from "../../StyledComponents/Title";
 import { loadCountries } from "../../Redux/Actions/countriesActions";
 import { getActivities } from "../../Redux/Actions/activitiesActions";
 import Pagination from "../Pagination/Pagination";

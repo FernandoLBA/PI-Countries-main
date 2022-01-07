@@ -4,7 +4,6 @@ const {
   getCountryById,
 } = require("../controllers/countriesController");
 const router = Router();
-// const { Country, Activity } = require("../db");
 
 router.get("/countries", async (req, res) => {
   const { name } = req.query;
@@ -15,7 +14,7 @@ router.get("/countries", async (req, res) => {
       : res.send({error: "Country not found"});
   }
   const countries = await getCountries();
-  return countries ? res.send(countries) : res.status(404).send({error: "No results"});
+  return countries ? res.send(countries) : res.send({error: "No results"});
 });
 
 router.get("/countries/:id", async (req, res) => {
