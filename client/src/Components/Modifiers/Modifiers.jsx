@@ -60,7 +60,7 @@ const Modifiers = () => {
       <Wrapper
         flex="flex"
         jContent="space-between"
-        width="350px"
+        width="380px"
         height="fit-content"
         padding="10px 15px"
         bground="chocolate"

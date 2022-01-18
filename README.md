@@ -13,6 +13,10 @@
 </p>
 
 <p align="left">
+  <img height="600" src="./loading.png" />
+</p>
+
+<p align="left">
   <img height="600" src="./home.png" />
 </p>
 
