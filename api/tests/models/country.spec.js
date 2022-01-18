@@ -64,7 +64,7 @@ describe("Country model", () => {
           population: 28435943,
         });
       });
-      it("should work when id's data type is an array", () => {
+      it("should work when id's data type is string", () => {
         Country.create({
           id: "VEN",
           name: "Venezuela",

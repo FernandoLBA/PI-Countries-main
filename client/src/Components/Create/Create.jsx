@@ -272,7 +272,7 @@ const Create = () => {
                   countries?.find((country) => country.id === c)?.flags
                 }") no-repeat center/100%`}
               >
-                REMOVE
+                
               </Button>
             ))}
           </Wrapper>

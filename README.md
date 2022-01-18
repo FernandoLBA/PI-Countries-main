@@ -8,6 +8,22 @@
   <img height="200" src="./countries.png" />
 </p>
 
+<p align="left">
+  <img height="200" src="./landing.png" />
+</p>
+
+<p align="left">
+  <img height="200" src="./home.png" />
+</p>
+
+<p align="left">
+  <img height="200" src="./country-details.png" />
+</p>
+
+<p align="left">
+  <img height="200" src="./create.png" />
+</p>
+
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.
