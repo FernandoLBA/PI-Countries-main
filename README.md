@@ -9,19 +9,19 @@
 </p>
 
 <p align="left">
-  <img height="200" src="./landing.png" />
+  <img height="400" src="./landing.png" />
 </p>
 
 <p align="left">
-  <img height="200" src="./home.png" />
+  <img height="400" src="./home.png" />
 </p>
 
 <p align="left">
-  <img height="200" src="./country-details.png" />
+  <img height="400" src="./country-details.png" />
 </p>
 
 <p align="left">
-  <img height="200" src="./create.png" />
+  <img height="400" src="./create.png" />
 </p>
 
 ## Objetivos del Proyecto
