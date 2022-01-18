@@ -13,7 +13,7 @@
 </p>
 
 <p align="left">
-  <img height="420" src="./loading.png" />
+  <img height="425" src="./loading.png" />
 </p>
 
 <p align="left">
