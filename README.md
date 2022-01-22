@@ -32,7 +32,7 @@
 
 <a href="https://youtu.be/z0PxtOxrJWg" alt="countries-youtube" target="_blank"><img src="./youtube.png" height="80"/></a>
 
-<a href="https://vimeo.com/user158728760/review/668887098/b0214389f8" alt="countries-vimeo" target="_blank"><img src="./vimeo.png" height="30"/></a>
+<a href="https://vimeo.com/user158728760/review/668887098/b0214389f8" alt="countries-vimeo" target="_blank"><img src="./vimeo.png" height="25"/></a>
 
 ## Objetivos del Proyecto
 
