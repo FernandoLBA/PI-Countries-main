@@ -28,6 +28,12 @@
   <img height="410" src="./create.png" />
 </p>
 
+## Ver Proyecto en Video
+
+<a href="https://youtu.be/z0PxtOxrJWg" alt="countries-youtube" target="_blank"><img src="./youtube.png"/></a>
+
+<a href="https://vimeo.com/user158728760/review/668887098/b0214389f8" alt="countries-vimeo" target="_blank"><img src="./vimeo.png"/></a>
+
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.
