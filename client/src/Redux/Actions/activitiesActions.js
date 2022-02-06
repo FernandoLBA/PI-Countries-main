@@ -1,10 +1,12 @@
 import { GET_ACTIVITIES } from "../Constants/actionTypes";
 import axios from "axios";
 
+const SERVER = "http://localhost:3001";
+
 export const getActivities = () => {
   return async function (dispatch) {
     axios
-      .get("http://localhost:3001/activities")
+      .get(`${SERVER}/activities`)
       .then((response) => {
         return dispatch({
           type: GET_ACTIVITIES,
@@ -24,7 +26,7 @@ export const setActivities = ({
 }) => {
   return async function () {
     await axios
-      .post("http://localhost:3001/activity", {
+      .post(`${SERVER}/activity`, {
         name,
         difficulty,
         duration,

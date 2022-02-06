@@ -11,10 +11,12 @@ import {
 } from "../Constants/actionTypes";
 import axios from "axios";
 
+const SERVER = "http://localhost:3001";
+
 export const getCountries = () => {
   return async function (dispatch) {
     await axios
-      .get("http://localhost:3001/countries")
+      .get(`${SERVER}/countries`)
       .then((response) => {
         return dispatch({
           type: GET_COUNTRIES,
@@ -36,7 +38,7 @@ export const getContinents = () => {
 export const getCountryByName = (name) => {
   return async function (dispatch) {
     await axios
-      .get(`http://localhost:3001/countries?name=${name}`)
+      .get(`${SERVER}/countries?name=${name}`)
       .then((response) => {
         return dispatch({
           type: GET_COUNTRY_BY_NAME,
@@ -50,7 +52,7 @@ export const getCountryByName = (name) => {
 export const getCountryById = (id) => {
   return async function (dispatch) {
     await axios
-      .get(`http://localhost:3001/countries/${id}`)
+      .get(`${SERVER}/countries/${id}`)
       .then((response) => {
         return dispatch({
           type: GET_COUNTRY_BY_ID,
