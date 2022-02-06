@@ -1,7 +1,7 @@
 import { GET_ACTIVITIES } from "../Constants/actionTypes";
 import axios from "axios";
 
-const SERVER = "http://localhost:3001";
+const SERVER = process.env.REACT_APP_SERVER || "http://localhost:3001";
 
 export const getActivities = () => {
   return async function (dispatch) {

@@ -11,7 +11,7 @@ import {
 } from "../Constants/actionTypes";
 import axios from "axios";
 
-const SERVER = "http://localhost:3001";
+const SERVER = process.env.REACT_APP_SERVER || "http://localhost:3001";
 
 export const getCountries = () => {
   return async function (dispatch) {
